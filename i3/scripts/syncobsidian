@@ -1,0 +1,10 @@
+#!/bin/bash
+
+cd ~/Documents/bank/
+
+CURRENT_DATE=`date`
+
+git add .
+git pull
+git commit -m "${CURRENT_DATE}"
+git push
