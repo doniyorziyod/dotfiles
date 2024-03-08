@@ -7,5 +7,4 @@ Plugin.dependencies = {
 }
 
 Plugin.cmd = {'Telescope'}
-
 return Plugin

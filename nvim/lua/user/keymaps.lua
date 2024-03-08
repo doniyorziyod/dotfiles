@@ -16,21 +16,14 @@ vim.keymap.set("n", "N", "Nzzzv")
 map('v', '<', '<gv', opts)
 map('v', '>', '>gv', opts)
 
-map("n", "<C-h>", "<C-w>h", opts)
-map("n", "<C-l>", "<C-w>l", opts)
-map("n", "<C-j>", "<C-w>j", opts)
-map("n", "<C-k>", "<C-w>k", opts)
-
 -- resize with arrows
 map("n", "<C-Up>", ":resize -2<CR>", opts)
 map("n", "<C-Down>", ":resize +2<CR>", opts)
 map("n", "<C-Left>", ":vertical resize -2<CR>", opts)
 map("n", "<C-Right>", ":vertical resize +2<CR>", opts)
 
-map("n", "ss", ":split<CR><C-w>w", opts)
+map("n", "sh", ":split<CR><C-w>w", opts)
 map("n", "sv", ":vsplit<CR><C-w>w", opts)
-
-map("i", "jk", "<ESC>", opts)
 
 -- greatest remap ever
 vim.keymap.set("x", "<leader>p", [["_dP]])
@@ -42,13 +35,7 @@ vim.keymap.set("n", "<leader>Y", [["+Y]])
 vim.keymap.set({"n", "v"}, "<leader>d", [["_d]])
 
 vim.keymap.set("n", "Q", "<nop>")
-vim.keymap.set("n", "<C-f>", "<cmd>silent !tmux neww tmux-sessionizer<CR>")
 vim.keymap.set("n", "<leader>f", vim.lsp.buf.format)
-
-vim.keymap.set("n", "<C-k>", "<cmd>cnext<CR>zz")
-vim.keymap.set("n", "<C-j>", "<cmd>cprev<CR>zz")
-vim.keymap.set("n", "<leader>k", "<cmd>lnext<CR>zz")
-vim.keymap.set("n", "<leader>j", "<cmd>lprev<CR>zz")
 
 vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
 vim.keymap.set("n", "<leader>x", "<cmd>!chmod +x %<CR>", { silent = true })
@@ -57,6 +44,18 @@ vim.keymap.set("n", "<leader><leader>", function()
     vim.cmd("so")
 end)
 
-vim.keymap.set("n", "<leader>xq", "<cmd>TroubleToggle quickfix<cr>",
+vim.keymap.set("n", "<leader>t", "<cmd>TroubleToggle quickfix<cr>",
   {silent = true, noremap = true}
 )
+
+vim.keymap.set("n", "<C-S-t>", "<cmd>ObsidianToday<cr>", { silent = true })
+vim.keymap.set("n", "<C-S-p>", "<cmd>ObsidianToday -1<cr>", { silent = true })
+vim.keymap.set("n", "<C-S-f>", "<cmd>ObsidianToday 1<cr>", { silent = true })
+vim.keymap.set("n", "<leader>on", ":ObsidianNew ")
+vim.keymap.set("n", "<leader>ou", "<cmd>ObsidianNew<cr>", { silent = true })
+vim.keymap.set("n", "<leader>of", "<cmd>ObsidianQuickSwitch<cr>", { silent = true })
+vim.keymap.set("n", "<leader>ob", "<cmd>ObsidianBacklinks<cr>", { silent = true })
+vim.keymap.set("n", "<leader>ot", "<cmd>ObsidianTemplate<cr>", { silent = true })
+vim.keymap.set("n", "<leader>os", "<cmd>ObsidianSearch<cr>", { silent = true })
+vim.keymap.set("n", "<leader>ol", "<cmd>ObsidianLinkNew<cr>", { silent = true })
+vim.keymap.set("n", "<leader>oe", "<cmd>ObsidianExtractNote<cr>", { silent = true })

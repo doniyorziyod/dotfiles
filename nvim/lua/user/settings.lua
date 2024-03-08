@@ -16,6 +16,8 @@ o.cursorline = true
 o.termguicolors = true
 o.clipboard = 'unnamedplus'
 o.nu = true
+-- obsidian.nvim
+o.cole = 1
 o.relativenumber = true
 o.hidden = true
 o.errorbells = false
