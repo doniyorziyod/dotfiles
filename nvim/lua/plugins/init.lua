@@ -15,6 +15,13 @@ local Plugins = {
     },
     {'andreasvc/vim-256noir'},
     {'kvrohit/rasmus.nvim'},
+    { 't184256/vim-boring' },
+    { 'Jorengarenar/vim-darkness' },
+    { 'ewilazarus/preto' },
+    {
+    "mcchrish/zenbones.nvim",
+    requires = "rktjmp/lush.nvim"
+    },
     -- harpoon
     {
         "ThePrimeagen/harpoon",

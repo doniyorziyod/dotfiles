@@ -15,13 +15,15 @@
   "nvim-lspconfig": { "branch": "master", "commit": "94cf4adb81158817520e18d2174963d8e1424df9" },
   "nvim-treesitter": { "branch": "master", "commit": "57205313dda0ac82ac69e21d5e2a80f3297c14cc" },
   "nvim-treesitter-textobjects": { "branch": "master", "commit": "b7a0bfa3e93697ca5b61b15df633404bf8f45883" },
-  "nvim-web-devicons": { "branch": "master", "commit": "4adea17610d140a99c313e3f79a9dc01825d59ae" },
-  "obsidian.nvim": { "branch": "main", "commit": "b1f5eb198a6e8dffffc484e803f0b3de4e15f815" },
+  "obsidian.nvim": { "branch": "main", "commit": "6888c7620109684371ed9304df2ba68abc78d558" },
   "oil.nvim": { "branch": "master", "commit": "18dfd2458dc741fea683357a17aaa95870b25a3c" },
   "plenary.nvim": { "branch": "master", "commit": "f7adfc4b3f4f91aab6caebf42b3682945fbc35be" },
+  "preto": { "branch": "master", "commit": "d7f5205ab63dcbfa80abbc18badd51aa0d9965b1" },
   "rasmus.nvim": { "branch": "main", "commit": "f824de95d446686e479781c0c2b778c177da528f" },
   "telescope.nvim": { "branch": "0.1.x", "commit": "d90956833d7c27e73c621a61f20b29fdb7122709" },
   "trouble.nvim": { "branch": "main", "commit": "f1168feada93c0154ede4d1fe9183bf69bac54ea" },
   "vim-256noir": { "branch": "master", "commit": "e8668a18a4a90272c1cae87e655f8bddc5ac3665" },
+  "vim-boring": { "branch": "master", "commit": "aae44498ec9cc3ce05778735fd4b79067c6346f9" },
+  "vim-darkness": { "branch": "master", "commit": "c991301b25dd906d6ab76339ce80b3600de05c41" },
   "zenbones.nvim": { "branch": "main", "commit": "33672310aac6b823c88cf16d5d99472439111f9c" }
 }
