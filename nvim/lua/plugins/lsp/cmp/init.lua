@@ -12,7 +12,6 @@ M.formatting = {
         local menu_icon = {
           nvim_lsp = 'lsp',
           luasnip = 'snip',
-          buffer = 'buff',
           path = 'path',
         }
 

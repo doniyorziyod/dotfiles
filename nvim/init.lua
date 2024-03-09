@@ -8,7 +8,7 @@ load('user.commands')
 load('user.keymaps')
 require('user.plugins')
 
-pcall(vim.cmd.colorscheme, 'gruvbox')
+pcall(vim.cmd.colorscheme, '256_noir')
 
 local builtin = require('telescope.builtin')
 vim.keymap.set('n', '<leader>pf', builtin.find_files, {})

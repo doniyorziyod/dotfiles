@@ -22,7 +22,7 @@ local Plugins = {
     "mcchrish/zenbones.nvim",
     requires = "rktjmp/lush.nvim"
     },
-    { "ellisonleao/gruvbox.nvim", priority = 1000 , config = true, },
+    { "ellisonleao/gruvbox.nvim" },
     -- harpoon
     {
         "ThePrimeagen/harpoon",

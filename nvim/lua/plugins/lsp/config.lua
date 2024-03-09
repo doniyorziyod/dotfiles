@@ -95,6 +95,15 @@ M.setup = function()
     }
   })
 
+  lspconfig.gopls.setup({
+      on_attach = M.attach,
+      settings = {
+          ['gopls'] = {
+              gofumpt = true,
+          }
+      }
+  })
+
   local python = string.gsub(vim.fn.system('which python3'), '\n', '')
 
   lspconfig.pylsp.setup({
