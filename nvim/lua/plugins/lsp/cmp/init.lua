@@ -1,18 +1,18 @@
 local M = {}
 
 M.sources = {
-  { name = 'nvim_lsp', priority = 1000 },
-  { name = 'luasnip', keyword_length = 2 },
-  { name = 'path' },
+    { name = 'nvim_lsp', priority = 1000 },
+    { name = 'luasnip',  keyword_length = 2 },
+    { name = 'path' },
 }
 
 M.formatting = {
-  fields = { 'abbr', 'kind', 'menu' },
-  format = function(entry, item)
+    fields = { 'abbr', 'kind', 'menu' },
+    format = function(entry, item)
         local menu_icon = {
-          nvim_lsp = 'lsp',
-          luasnip = 'snip',
-          path = 'path',
+            nvim_lsp = 'lsp',
+            luasnip = 'snip',
+            path = 'path',
         }
 
         item.menu = menu_icon[entry.source.name]
@@ -21,83 +21,83 @@ M.formatting = {
 }
 
 M.setup = function(options)
-  local border = options.border or 'single'
-  local sign = function(opts)
-    vim.fn.sign_define(opts.name, {
-      texthl = opts.name,
-      text = opts.text,
-      numhl = '',
+    local border = options.border or 'single'
+    local sign = function(opts)
+        vim.fn.sign_define(opts.name, {
+            texthl = opts.name,
+            text = opts.text,
+            numhl = '',
+        })
+    end
+
+    sign({ name = 'DiagnosticSignError', text = 'E' })
+    sign({ name = 'DiagnosticSignWarn', text = 'W' })
+    sign({ name = 'DiagnosticSignHint', text = 'H' })
+    sign({ name = 'DiagnosticSignInfo', text = 'I' })
+
+    vim.diagnostic.config({
+        virtual_text = true,
+        signs = true,
+        update_in_insert = true,
+        underline = true,
+        float = true,
     })
-  end
 
-  sign({ name = 'DiagnosticSignError', text = 'E' })
-  sign({ name = 'DiagnosticSignWarn', text = 'W' })
-  sign({ name = 'DiagnosticSignHint', text = 'H' })
-  sign({ name = 'DiagnosticSignInfo', text = 'I' })
+    local cmp = require('cmp')
+    local luasnip = require('luasnip')
 
-  vim.diagnostic.config({
-    virtual_text = true,
-    signs = true,
-    update_in_insert = true,
-    underline = true,
-    float = true,
-  })
+    -- load custom snippets
+    require('luasnip.loaders.from_vscode').lazy_load()
 
-  local cmp = require('cmp')
-  local luasnip = require('luasnip')
+    local select_opts = { behavior = cmp.SelectBehavior.Select }
 
-  -- load custom snippets
-  require('luasnip.loaders.from_vscode').lazy_load()
+    cmp.setup({
+        sources = M.sources,
 
-  local select_opts = { behavior = cmp.SelectBehavior.Select }
+        window = {
+            completion = { border = border },
+            documentation = { border = border },
+        },
 
-  cmp.setup({
-    sources = M.sources,
+        completion = {
+            completeopt = 'menu,menuone,noinsert',
+        },
+        snippet = {
+            expand = function(args)
+                luasnip.lsp_expand(args.body)
+            end,
+        },
 
-    window = {
-      completion = { border = border },
-      documentation = { border = border },
-    },
+        formatting = M.formatting,
 
-    completion = {
-      completeopt = 'menu,menuone,noinsert',
-    },
-    snippet = {
-      expand = function(args)
-        luasnip.lsp_expand(args.body)
-      end,
-    },
+        mapping = {
+            ['<C-p>'] = cmp.mapping.select_prev_item(select_opts),
+            ['<C-n>'] = cmp.mapping.select_next_item(select_opts),
 
-    formatting = M.formatting,
+            ['<C-u>'] = cmp.mapping.scroll_docs(-4),
+            ['<C-d>'] = cmp.mapping.scroll_docs(4),
 
-mapping = {
-      ['<C-p>'] = cmp.mapping.select_prev_item(select_opts),
-      ['<C-n>'] = cmp.mapping.select_next_item(select_opts),
+            ['<C-e>'] = cmp.mapping.abort(),
+            ['<C-s>'] = cmp.mapping.confirm({ select = true }),
+            ['<C-Space>'] = cmp.mapping.complete(),
 
-      ['<C-u>'] = cmp.mapping.scroll_docs(-4),
-      ['<C-d>'] = cmp.mapping.scroll_docs(4),
+            ['<C-f>'] = cmp.mapping(function(fallback)
+                if luasnip.jumpable(1) then
+                    luasnip.jump(1)
+                else
+                    fallback()
+                end
+            end, { 'i', 's' }),
 
-      ['<C-e>'] = cmp.mapping.abort(),
-      ['<C-y>'] = cmp.mapping.confirm({select = true}),
-      ['<C-Space>'] = cmp.mapping.complete(),
-
-      ['<C-f>'] = cmp.mapping(function(fallback)
-        if luasnip.jumpable(1) then
-          luasnip.jump(1)
-        else
-          fallback()
-        end
-      end, {'i', 's'}),
-
-      ['<C-b>'] = cmp.mapping(function(fallback)
-        if luasnip.jumpable(-1) then
-          luasnip.jump(-1)
-        else
-          fallback()
-        end
-      end, {'i', 's'}),
-    },  
-})
+            ['<C-b>'] = cmp.mapping(function(fallback)
+                if luasnip.jumpable(-1) then
+                    luasnip.jump(-1)
+                else
+                    fallback()
+                end
+            end, { 'i', 's' }),
+        },
+    })
 end
 
 return M

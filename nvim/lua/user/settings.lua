@@ -4,7 +4,7 @@ local cmd = vim.cmd
 local exec = vim.api.nvim_exec
 
 local hl = function(thing, opts)
-  vim.api.nvim_set_hl(0, thing, opts)
+    vim.api.nvim_set_hl(0, thing, opts)
 end
 
 hl('SignColumn', { bg = 'none' })
@@ -43,8 +43,8 @@ o.updatetime = 50
 o.shortmess:append('c')
 o.showmode = false
 o.colorcolumn = '70'
-o.shell= "/usr/bin/fish"
+o.shell = "/usr/bin/fish"
 o.smarttab = true
 o.showmode = true
-o.guifont = "Fira Code:h8"
+o.guifont = "Fira Code:h9"
 o.encoding = "utf-8"

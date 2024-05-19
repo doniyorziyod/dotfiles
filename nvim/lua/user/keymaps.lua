@@ -1,5 +1,5 @@
 local map = vim.api.nvim_set_keymap
-local opts = {noremap = true, silent = true}
+local opts = { noremap = true, silent = true }
 
 vim.g.mapleader = " "
 vim.keymap.set("n", "<leader>pv", "<cmd>silent Oil<CR>")
@@ -29,10 +29,10 @@ map("n", "sv", ":vsplit<CR><C-w>w", opts)
 vim.keymap.set("x", "<leader>p", [["_dP]])
 
 -- next greatest remap ever : asbjornHaland
-vim.keymap.set({"n", "v"}, "<leader>y", [["+y]])
+vim.keymap.set({ "n", "v" }, "<leader>y", [["+y]])
 vim.keymap.set("n", "<leader>Y", [["+Y]])
 
-vim.keymap.set({"n", "v"}, "<leader>d", [["_d]])
+vim.keymap.set({ "n", "v" }, "<leader>d", [["_d]])
 
 vim.keymap.set("n", "Q", "<nop>")
 vim.keymap.set("n", "<leader>f", vim.lsp.buf.format)
@@ -43,10 +43,6 @@ vim.keymap.set("n", "<leader>x", "<cmd>!chmod +x %<CR>", { silent = true })
 vim.keymap.set("n", "<leader><leader>", function()
     vim.cmd("so")
 end)
-
-vim.keymap.set("n", "<leader>t", "<cmd>TroubleToggle quickfix<cr>",
-  {silent = true, noremap = true}
-)
 
 vim.keymap.set("n", "<C-S-t>", "<cmd>ObsidianToday<cr>", { silent = true })
 vim.keymap.set("n", "<C-S-p>", "<cmd>ObsidianToday -1<cr>", { silent = true })
