@@ -1,0 +1,61 @@
+general {
+    interval 		= 5
+    colors 			= true
+    color_good      = '#00ff00'
+    color_degraded  = '#ffff00'
+    color_bad       = '#ff0000'
+}
+
+order += "tztime local"
+order += "volume master"
+order += "battery 0"
+order += "wireless wlo1"
+order += "disk /"
+#order += "disk /home"
+order += "cpu_temperature 0"
+order += "cpu_usage 0"
+
+wireless wlo1 {
+    format_up = "WIFI:%essid"
+    format_down = ""
+}
+
+battery 0 {
+    format = "%status:%percentage"
+    format_down = ""
+    last_full_capacity = true
+    integer_battery_capacity = true
+    low_threshold = 30
+    threshold_type = percentage
+    hide_seconds = true
+    status_chr = "CHARGING"
+    status_bat = "BAT"
+    status_full = "FULL"
+}
+
+tztime local {
+    format = "%H:%M:%S |%e %B | %A"
+}
+
+cpu_usage {
+    format = "CPU:%usage"
+}
+
+cpu_temperature 0 {
+	format = "TEMP:%degrees°C"
+}
+
+disk "/" {
+	format = "MEM:%avail"
+	prefix_type	= custom
+	low_threshold = 20
+	threshold_type = percentage_avail
+}
+
+volume master {
+    format = "VOL:%volume"
+    format_muted = "MUT"
+    device = "default"
+    mixer = "Master"
+    mixer_idx = 0
+}
