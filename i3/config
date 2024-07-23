@@ -41,6 +41,7 @@ mode "resize" {
 for_window                       [workspace=88] layout tabbed
 for_window                       [workspace=99] layout tabbed
 for_window                       [all] border pixel 2
+
 # bar {
 #     status_command i3status
 #     position bottom
