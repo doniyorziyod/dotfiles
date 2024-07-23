@@ -23,10 +23,8 @@ alias g git
 alias hx helix
 alias vim nvim
 alias neo neovide
-alias book "cd ~/.wine/drive_c/users/doniyorziyod/AppData/Roaming/mIRC/downloads/"
 alias mine "sudo java -jar ~/Downloads/TLauncher.v10/TLauncher.jar"
 alias updcalibre "sudo -v && wget -nv -O- https://download.calibre-ebook.com/linux-installer.sh | sudo sh /dev/stdin"
-alias note "cd ~/Documents/mybrain/notes/ | vim"
 
 set -gx EDITOR nvim
 
