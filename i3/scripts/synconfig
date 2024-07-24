@@ -4,7 +4,7 @@ cd ~/.config/
 
 CURRENT_DATE=`date`
 
-git add nvim/ fish/ dunst/ fontconfig/ i3/ i3status/ kitty/ picom/ polybar/ tmux/
+git add nvim/ fish/ dunst/ fontconfig/ i3/ i3status/ kitty/ picom/ polybar/ tmux/ README.md
 git pull origin HEAD
 git commit -m "${CURRENT_DATE}"
 git push origin HEAD
