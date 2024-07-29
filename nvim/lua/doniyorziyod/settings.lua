@@ -52,3 +52,4 @@ o.encoding = "utf-8"
 o.spl = "en,ru"
 o.spell = true
 g.wrap = "smoothscroll"
+g.vim_markdown_frontmatter = 1

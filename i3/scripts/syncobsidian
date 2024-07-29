@@ -1,6 +1,6 @@
 #!/bin/bash
 
-cd ~/mybrain/
+cd ~/journal/
 
 CURRENT_DATE=`date`
 

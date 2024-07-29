@@ -205,3 +205,20 @@ $ ssh-add ~/.ssh/id_ed25519
 $ cat ~/.ssh/id_ed25519.pub
 $ ssh-keyscan -t rsa github.com >> ~/.ssh/known_hosts
 ```
+
+#### Bluetooth
+```shell
+$ sudo systemctl start bluetooth.service
+$ sudo systemctl enable bluetooth.service
+```
+And just use blueman-manager
+
+#### Microphone
+```shell
+$ pacmd list-sources
+```
+Find active device (marked with *)
+
+```shell
+$ pacmd set-source-volume __id__ 30000
+```
