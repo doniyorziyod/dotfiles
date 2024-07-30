@@ -194,7 +194,7 @@ return {
                 ObsidianTodo = { bold = true, fg = "#f78c6c" },
                 ObsidianDone = { bold = true, fg = "#89ddff" },
                 ObsidianCancelled = { bold = true, fg = "#000000" },
-                ObsidianHalf = { bold = true, fg = "#FFFFFF" },
+                ObsidianHalf = { bold = true, fg = "##ffff00" },
                 ObsidianRightArrow = { bold = true, fg = "#f78c6c" },
                 ObsidianTilde = { bold = true, fg = "#ff5370" },
                 ObsidianImportant = { bold = true, fg = "#d73128" },
