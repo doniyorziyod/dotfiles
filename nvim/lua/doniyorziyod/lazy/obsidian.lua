@@ -15,20 +15,13 @@ return {
                     notes_subdir = "notes",
                 },
             },
-            {
-                name = "depricated",
-                path = "~/mybrain",
-                overrides = {
-                    notes_subdir = "notes",
-                },
-            },
         },
 
         notes_subdir = "notes",
         daily_notes = {
             folder = "notes/daily",
             date_format = "%Y-%m-%d",
-            alias_format = "%B %-d, %Y",
+            alias_format = "%A, %B %-d, %Y",
             default_tags = { "daily-notes" },
             template = 'daily.md'
         },
