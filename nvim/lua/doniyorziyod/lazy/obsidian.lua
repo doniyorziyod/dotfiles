@@ -59,13 +59,11 @@ return {
         note_id_func = function(title)
             local suffix = ""
             if title ~= nil then
-                suffix = title:gsub(" ", "-"):gsub("[^A-Za-z0-9-]", ""):lower()
+                suffix = title
             else
-                for _ = 1, 4 do
-                    suffix = suffix .. string.char(math.random(65, 90))
-                end
+                suffix = tostring(os.time())
             end
-            return tostring(os.time()) .. "-" .. suffix
+            return suffix
         end,
 
         ---@param spec { id: string, dir: obsidian.Path, title: string|? }
