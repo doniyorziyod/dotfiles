@@ -1,0 +1,11 @@
+exec --no-startup-id dex --autostart --environment i3
+exec --no-startup-id nm-applet
+exec --no-startup-id picom -b
+exec --no-startup-id dunst
+exec --no-startup-id nitrogen --restore
+exec --no-startup-id unclutter -idle 20
+exec --no-startup-id copyq
+exec_always --no-startup-id autotiling-rs
+exec_always --no-startup-id ~/.config/polybar/launch.sh
+exec_always --no-startup-id /bin/bash -c "sleep 7 && /home/doniyorziyod/.config/i3/scripts/changelayout"
+exec_always --no-startup-id /usr/bin/emacs --daemon
